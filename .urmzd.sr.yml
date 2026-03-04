@@ -1,0 +1,18 @@
+branches:
+  - master
+
+floating_tags: true
+
+version_files:
+  - pyproject.toml
+  - src/chess_core/__init__.py
+  - src/chess_cli/__init__.py
+
+changelog:
+  file: CHANGELOG.md
+
+commit_types:
+  chore: patch
+
+artifacts:
+  - dist.tar.gz

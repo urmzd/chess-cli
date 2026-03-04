@@ -1,0 +1,38 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chess-cli"
+version = "0.0.0"
+description = "A command-line chess game with AI"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+dependencies = ["pydantic>=2.0", "textual>=1.0"]
+
+[project.scripts]
+chess-cli = "chess_cli.__main__:main"
+
+[dependency-groups]
+dev = ["ruff>=0.8", "mypy>=1.13", "pytest>=8.0", "textual-dev>=1.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/chess_core", "src/chess_cli"]
+
+[tool.ruff]
+src = ["src"]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "UP", "B", "SIM", "RUF"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["chess_core", "chess_cli"]
+
+[tool.mypy]
+python_version = "3.10"
+mypy_path = "src"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
