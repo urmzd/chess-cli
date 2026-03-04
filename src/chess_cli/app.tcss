@@ -1,0 +1,100 @@
+Screen {
+    background: #1a1a1a;
+}
+
+Header {
+    background: #1a1a1a;
+    color: #4ade80;
+    dock: top;
+}
+
+Footer {
+    background: #1a1a1a;
+    color: #666666;
+    dock: bottom;
+}
+
+#main-area {
+    height: 1fr;
+}
+
+#board-panel {
+    width: 40;
+    min-width: 40;
+    padding: 0 1;
+}
+
+.file-labels {
+    height: 1;
+    color: #666666;
+}
+
+#chess-board {
+    layout: grid;
+    grid-size: 8 8;
+    grid-gutter: 0;
+    width: 36;
+    height: 16;
+    min-height: 16;
+}
+
+ChessSquare {
+    width: 4;
+    height: 2;
+    content-align: center middle;
+    text-align: center;
+}
+
+.light-square {
+    background: #3a3a3a;
+    color: #e0e0e0;
+}
+
+.dark-square {
+    background: #2a2a2a;
+    color: #e0e0e0;
+}
+
+.selected {
+    background: #4ade80 30%;
+}
+
+.legal-target {
+    background: #4ade80 15%;
+}
+
+.last-move {
+    background: #facc15 15%;
+}
+
+#side-panel {
+    width: 1fr;
+    padding: 1 2;
+}
+
+#status-label {
+    height: 3;
+    color: #4ade80;
+    text-style: bold;
+    padding: 0 1;
+}
+
+#move-log {
+    height: 1fr;
+    border: solid #333333;
+    padding: 0 1;
+    color: #999999;
+    background: #1e1e1e;
+}
+
+#move-text {
+    color: #999999;
+}
+
+#command-input {
+    dock: bottom;
+    margin: 0 1;
+    background: #222222;
+    color: #e0e0e0;
+    border: solid #333333;
+}
