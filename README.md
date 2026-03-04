@@ -1,61 +1,122 @@
-# ♟️ Chess: Command Line Edition ♟️
+# Chess: Command Line Edition
 
-Dive into the classic world of Chess with this command-line interface version. Crafted in Object-Oriented Python, it offers a unique blend of strategic gameplay and programming elegance.
+A terminal-based chess game with an AI opponent, built in Python using [Textual](https://textual.textualize.io/).
 
-## Table of Contents
+![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
+![License](https://img.shields.io/badge/license-Apache--2.0-green)
 
-- [Introduction](#introduction) 🌟
-- [Prerequisites](#prerequisites) 📋
-- [Getting Started](#getting-started) 🚀
-- [Gameplay Instructions](#gameplay-instructions) 🎮
-- [Additional Resources](#additional-resources) 📚
+## Features
 
-## Introduction
-
-Rediscover Chess in a new format. This Python application merges the game's traditional complexity with a simple, accessible command-line interface.
+- Interactive TUI with click-to-move and keyboard input
+- Legal move highlighting and last-move indicators
+- AI opponent powered by minimax with alpha-beta pruning (configurable depth)
+- Fully immutable game state using frozen Pydantic models
+- Check, checkmate, stalemate, and 50-move draw detection
+- Pawn promotion, castling, and en passant support
+- Move log in standard paired notation
 
 ## Prerequisites
 
-- Python 3.8 or later. [Download Python](https://www.python.org/downloads/)
+- Python 3.12+
+- [uv](https://docs.astral.sh/uv/)
+- [just](https://github.com/casey/just) (optional, for dev tasks)
 
 ## Getting Started
 
-### Setup
-
-Clone the repository:
-
 ```bash
-git clone https://www.github.com/urmzd/chess.git
+git clone https://github.com/urmzd/chess-cli.git
+cd chess-cli
+uv sync
 ```
 
-### Launching the Game
-
-Execute using Python:
+## Running the Game
 
 ```bash
-python src/Chess.py
+# Via entry point
+uv run chess-cli
+
+# Or as a module
+uv run python -m chess_cli
 ```
 
-Or directly (if `python3.8` is aliased to `python`):
+## Gameplay
+
+### Mouse
+
+Click a piece to select it. Legal target squares are highlighted in green. Click a target square to move.
+
+### Keyboard
+
+Type commands into the input bar at the bottom of the screen:
+
+| Command | Description |
+|---------|-------------|
+| `e2e4` | Move a piece (from-square to-square) |
+| `a7a8q` | Move with pawn promotion (q/r/b/n) |
+| `help` / `h` | Show available commands |
+| `new` / `n` | Start a new game |
+| `quit` / `q` | Exit the game |
+
+### Keybindings
+
+| Key | Action |
+|-----|--------|
+| `q` | Quit |
+| `n` | New game |
+
+## Architecture
+
+The project is split into two packages under `src/`:
+
+```
+src/
+├── chess_core/          # Pure game logic (no UI dependency)
+│   ├── models/          # Frozen Pydantic models (Piece, Move, GameState, etc.)
+│   ├── rules/           # Board ops, move generation, check/checkmate detection
+│   └── engine/          # Static evaluation + minimax with alpha-beta pruning
+└── chess_cli/           # Textual TUI application
+    ├── app.py           # ChessApp entry point
+    ├── app.tcss         # Terminal stylesheet
+    ├── screens/         # GameScreen (main screen)
+    └── widgets/         # ChessBoard, ChessSquare, CommandInput, MoveLog
+```
+
+`chess_core` is a standalone library with no Textual dependency. All game state is immutable -- every move produces a new `GameState` with no mutation.
+
+## Development
 
 ```bash
-./src/Chess.py
+# Install dev dependencies
+uv sync --group dev
+
+# Individual checks
+just fmt          # check formatting (ruff)
+just fmt-fix      # fix formatting
+just lint         # check lints (ruff)
+just lint-fix     # fix lints
+just typecheck    # run mypy
+just test         # run pytest
+
+# Full CI check (fmt + lint + typecheck + test)
+just ci
+
+# Run the game
+just run
 ```
 
-## Gameplay Instructions
+### Pre-commit Hooks
 
-- **move**: Input a move.
-- **help**: View commands.
-- **draw**: Offer a draw.
+The project uses [Conventional Commits](https://www.conventionalcommits.org/) enforced via a pre-commit hook. Install hooks with:
 
-### Gameplay Example
+```bash
+uv run pre-commit install --hook-type commit-msg
+```
 
-![Chess Example](./resources/example.png)
+### CI/CD
 
-## Additional Resources
+- **CI** (`ci.yml`): Runs format, lint, typecheck, and test checks in parallel on PRs to `master`.
+- **Release** (`release.yml`): On push to `master`, runs CI then builds and publishes a GitHub release via semantic-release.
 
-Explore these resources for deeper insights into Chess and AI:
-- [YouTube 1](https://youtu.be/zp3VMe0Jpf8)
-- [YouTube 2](https://www.youtube.com/watch?v=l-hh51ncgDI)
-- [Article 1](https://www.freecodecamp.org/news/simple-chess-ai-step-by-step-1d55a9266977/)
+## License
 
+[Apache-2.0](LICENSE)
