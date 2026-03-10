@@ -117,6 +117,18 @@ uv run pre-commit install --hook-type commit-msg
 - **CI** (`ci.yml`): Runs format, lint, typecheck, and test checks in parallel on PRs to `master`.
 - **Release** (`release.yml`): On push to `master`, runs CI then builds and publishes a GitHub release via semantic-release.
 
+## Agent Skill
+
+This project ships an [Agent Skill](https://github.com/vercel-labs/skills) for use with Claude Code, Cursor, and other compatible agents.
+
+**Install:**
+
+```sh
+npx skills add urmzd/chess-cli
+```
+
+Once installed, use `/chess-cli` to launch the game or work on the chess engine and TUI.
+
 ## License
 
 [Apache-2.0](LICENSE)
