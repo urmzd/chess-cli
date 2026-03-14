@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "chess-cli"
-version = "0.0.0"
+version = "1.0.0"
 description = "A command-line chess game with AI"
 license = "Apache-2.0"
 requires-python = ">=3.10"
