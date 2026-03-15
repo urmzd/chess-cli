@@ -1,0 +1,22 @@
+# Chess: Command Line Edition
+
+> A terminal-based chess game with an AI opponent, built in Python using Textual TUI framework. Features interactive click-to-move and keyboard input, legal move highlighting, AI powered by minimax with alpha-beta pruning, fully immutable game state using frozen Pydantic models, and support for all standard chess rules including castling, en passant, and pawn promotion.
+
+## Docs
+
+- [README](https://github.com/urmzd/chess-cli/blob/main/README.md): Installation, usage, gameplay controls, and architecture overview
+- [AGENTS.md](https://github.com/urmzd/chess-cli/blob/main/AGENTS.md): Architecture and development guide
+- [CONTRIBUTING](https://github.com/urmzd/chess-cli/blob/main/CONTRIBUTING.md): How to contribute
+
+## API / Key Files
+
+- [src/chess_core/models/](https://github.com/urmzd/chess-cli/blob/main/src/chess_core/models/): Frozen Pydantic models (Piece, Move, GameState)
+- [src/chess_core/engine/](https://github.com/urmzd/chess-cli/blob/main/src/chess_core/engine/): Minimax AI with alpha-beta pruning
+- [src/chess_core/rules/](https://github.com/urmzd/chess-cli/blob/main/src/chess_core/rules/): Move generation, check/checkmate detection
+- [src/chess_cli/app.py](https://github.com/urmzd/chess-cli/blob/main/src/chess_cli/app.py): Textual TUI application entry point
+- [pyproject.toml](https://github.com/urmzd/chess-cli/blob/main/pyproject.toml): Project configuration and dependencies
+
+## Optional
+
+- [CONTRIBUTING](https://github.com/urmzd/chess-cli/blob/main/CONTRIBUTING.md): How to contribute
+- [Skill](https://github.com/urmzd/chess-cli/blob/main/skills/chess-cli/SKILL.md): Agent skill

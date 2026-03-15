@@ -1,0 +1,11 @@
+[output]
+dir = "./showcase"
+formats = ["png"]
+
+[[scenes]]
+type = "terminal"
+command = "uv run chess-cli --help 2>&1"
+name = "chess-tui"
+theme = "dracula"
+cols = 100
+maxLines = 40

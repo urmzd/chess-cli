@@ -1,9 +1,17 @@
-# Chess: Command Line Edition
+<p align="center">
+  <h1 align="center">Chess CLI</h1>
+  <p align="center">
+    A terminal-based chess game with an AI opponent, built in Python using Textual.
+    <br /><br />
+    <a href="https://github.com/urmzd/chess-cli/releases">Install</a>
+    &middot;
+    <a href="https://github.com/urmzd/chess-cli/issues">Report Bug</a>
+  </p>
+</p>
 
-A terminal-based chess game with an AI opponent, built in Python using [Textual](https://textual.textualize.io/).
-
-![Python 3.12](https://img.shields.io/badge/python-3.12-blue)
-![License](https://img.shields.io/badge/license-Apache--2.0-green)
+<p align="center">
+  <a href="https://github.com/urmzd/chess-cli/actions/workflows/ci.yml"><img src="https://github.com/urmzd/chess-cli/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+</p>
 
 ## Features
 
@@ -21,7 +29,7 @@ A terminal-based chess game with an AI opponent, built in Python using [Textual]
 - [uv](https://docs.astral.sh/uv/)
 - [just](https://github.com/casey/just) (optional, for dev tasks)
 
-## Getting Started
+## Quick Start
 
 ```bash
 git clone https://github.com/urmzd/chess-cli.git
