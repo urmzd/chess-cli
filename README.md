@@ -16,7 +16,7 @@
 </p>
 
 <p align="center">
-  <img src="assets/example.png" alt="Chess CLI screenshot" width="600" />
+  <img src="assets/example.svg" alt="Chess CLI screenshot" width="600" />
 </p>
 
 ## Features
