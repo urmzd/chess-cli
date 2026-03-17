@@ -1,6 +1,8 @@
 <p align="center">
   <h1 align="center">Chess CLI</h1>
   <p align="center">
+    <strong>⚠️ This project is archived and no longer maintained.</strong>
+    <br /><br />
     A terminal-based chess game with an AI opponent, built in Python using Textual.
     <br /><br />
     <a href="https://github.com/urmzd/chess-cli/releases">Install</a>
@@ -11,6 +13,10 @@
 
 <p align="center">
   <a href="https://github.com/urmzd/chess-cli/actions/workflows/ci.yml"><img src="https://github.com/urmzd/chess-cli/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
+</p>
+
+<p align="center">
+  <img src="assets/example.png" alt="Chess CLI screenshot" width="600" />
 </p>
 
 ## Features
